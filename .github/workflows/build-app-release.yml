@@ -1,5 +1,5 @@
 name: Build App Release
-on: [push,merge]
+on: [push]
 jobs:
   release-build:
     runs-on: ubuntu-20.04
