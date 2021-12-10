@@ -13,7 +13,7 @@ jobs:
       with:
         java-version: 11
 
-    - run: git submodule add -name leveldb-mcpe git@github.com:mojang/leveldb-mcpe
+    - run: git submodule add --name leveldb-mcpe git@github.com:mojang/leveldb-mcpe
       name: Setup Submodule
 
     - run: ./gradlew assembleRelease --no-daemon
