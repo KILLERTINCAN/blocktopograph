@@ -26,5 +26,5 @@ jobs:
       name: Upload APK
       with:
         name: blocktopograph
-        path: blocktopograph/app/build/outputs/apk/release/blocktopogrph-release.apk
+        path: blocktopograph/app/build/outputs/apk/release/*.apk
       
