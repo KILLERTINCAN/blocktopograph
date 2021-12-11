@@ -19,9 +19,6 @@ jobs:
     - run: ./gradlew assembleRelease --no-daemon
       name: Building App With Gradle
 
-    - run: mkdir --parents blocktopograph/app/build/outputs/apk/realease
-      name: Pre-Upload APK
-
     - uses: actions/upload-artifact@v2
       name: Upload APK
       with:
