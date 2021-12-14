@@ -1184,17 +1184,9 @@ public enum KnownBlockRepr implements NamedBitmapProviderHandle, NamedBitmapProv
     }
 
     public static void loadBitmaps(AssetManager assetManager) throws IOException {
-        if (Math.random() < 1) return;
         for (KnownBlockRepr b : KnownBlockRepr.values()) {
             if (b.bitmap == null && b.texPath != null) {
-                try {
-                    b.bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeStream(assetManager.open(b.texPath)), 32, 32, false);
-                } catch (FileNotFoundException e) {
-                    //TODO file-paths were generated from block names; some do not actually exist...
-                    //Log.w("File not found! "+b.texPath);
-                } catch (Exception e) {
-                    Log.d(KnownBlockRepr.class, e);
-                }
+                b.bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeStream(assetManager.open(b.texPath)), 32, 32, false);
             }
         }
     }
