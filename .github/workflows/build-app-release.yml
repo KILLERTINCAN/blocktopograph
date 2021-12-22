@@ -24,7 +24,8 @@ jobs:
     - run: ./gradlew -PsigningStorePassword="${{ secrets.SIGNING_STORE_PASSWORD }}" -PsigningKeyAlias="${{ secrets.SIGNING_KEY_ALIAS }}" -PsigningKeyPassword="${{ secrets.SIGNING_KEY_PASSWORD }}" assembleRelease
       name: Building App With Signing Key
 
-    - run: ls -a
+    - run: |
+       ls app/build/outputs/apk/release/ -a
       name: Show All Files
 
     - uses: actions/upload-artifact@v2
