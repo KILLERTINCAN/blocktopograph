@@ -24,8 +24,11 @@ jobs:
     - run: ./gradlew -PsigningStorePassword="${{ secrets.SIGNING_STORE_PASSWORD }}" -PsigningKeyAlias="${{ secrets.SIGNING_KEY_ALIAS }}" -PsigningKeyPassword="${{ secrets.SIGNING_KEY_PASSWORD }}" assembleRelease
       name: Building App With Signing Key
 
+    - run: ls -a
+      name: Show All Files
+
     - uses: actions/upload-artifact@v2
       name: Upload APK
       with:
         name: blocktopograph
-        path: app/build/outputs/apk/release/*.apk
+        path: app/build/outputs/apk/release/blocktopograph-release.apk
