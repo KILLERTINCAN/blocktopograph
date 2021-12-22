@@ -17,8 +17,8 @@ jobs:
       name: Setup Submodule
 
     - run: |
-        echo "${{ secrets.KEYSTORE }}" > ${{ secrets.APP_NAME }}.jks.asc
-        gpg -d --passphrase ${{ secrets.KEYSTORE_PASSPHRASE }} --batch ${{ secrets.APP_NAME }}.jks.asc > ${{ secrets.APP_NAME }}/${{ secrets.APP_NAME }}.jks
+        echo "${{ secrets.KEYSTORE }}" > blocktopograph.jks.asc
+        gpg -d --passphrase ${{ secrets.KEYSTORE_PASSPHRASE }} --batch blocktopograph.jks.asc > blocktopograph/blocktopograph.jks
       name: Setup Signing Key
 
     - run: ./gradlew -PsigningStorePassword="${{ secrets.SIGNING_STORE_PASSWORD }}" -PsigningKeyAlias="${{ secrets.SIGNING_KEY_ALIAS }}" -PsigningKeyPassword="${{ secrets.SIGNING_KEY_PASSWORD }}" assembleRelease
