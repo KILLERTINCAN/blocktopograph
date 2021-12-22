@@ -25,7 +25,7 @@ jobs:
       name: Building App With Signing Key
 
     - run: |
-       ls app/build/outputs/apk/release/ -a
+       ls app/ -a
       name: Show All Files
 
     - uses: actions/upload-artifact@v2
