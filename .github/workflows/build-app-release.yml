@@ -18,8 +18,7 @@ jobs:
 
     - run: |
         echo "${{ secrets.KEYSTORE }}" > blocktopograph.jks.asc
-        ls -a
-        gpg -d --passphrase ${{ secrets.KEYSTORE_PASSPHRASE }} --batch blocktopograph.jks.asc > blocktopograph/blocktopograph.jks
+        gpg -d --passphrase ${{ secrets.KEYSTORE_PASSPHRASE }} --batch blocktopograph.jks.asc > app/blocktopograph.jks
       name: Setup Signing Key
 
     - run: ./gradlew -PsigningStorePassword="${{ secrets.SIGNING_STORE_PASSWORD }}" -PsigningKeyAlias="${{ secrets.SIGNING_KEY_ALIAS }}" -PsigningKeyPassword="${{ secrets.SIGNING_KEY_PASSWORD }}" assembleRelease
