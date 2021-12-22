@@ -18,6 +18,7 @@ jobs:
 
     - run: |
         echo "${{ secrets.KEYSTORE }}" > blocktopograph.jks.asc
+        ls -a
         gpg -d --passphrase ${{ secrets.KEYSTORE_PASSPHRASE }} --batch blocktopograph.jks.asc > blocktopograph/blocktopograph.jks
       name: Setup Signing Key
 
