@@ -68,7 +68,6 @@ android {
                 removeUnusedResources true
                 obfuscate true
                 optimizeCode true
-                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             }
         }
     }
