@@ -3,6 +3,13 @@ apply plugin: 'com.android.application'
 //apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 
+def signingProperties = new Properties()
+def signingStoreFile = file('./blocktopograph.jks')
+def signingPropertiesFile = rootProject.file("signing.properties")
+if (signingPropertiesFile.exists()) {
+    signingProperties.load(new FileInputStream(signingPropertiesFile))
+}
+
 android {
     compileSdkVersion 30
     defaultConfig {
@@ -20,6 +27,18 @@ android {
     configurations {
         implementation.exclude group: 'org.jetbrains', module: 'annotations'
     }
+
+    if (signingStoreFile.exists()) {
+        signingConfigs {
+            release {
+                storeFile file('./blocktopograph.jks')
+                storePassword signingProperties['signingStorePassword'] ?: rootProject.signingStorePassword
+                keyAlias signingProperties['signingKeyAlias'] ?: rootProject.signingKeyAlias
+                keyPassword signingProperties['signingKeyPassword'] ?: rootProject.signingKeyPassword
+            }
+        }
+    }
+
     buildTypes {
 
         debug {
@@ -37,6 +56,12 @@ android {
         }
 
         release {
+            if (signingStoreFile.exists()) {
+                signingConfig signingConfigs.release
+            }
+
+            minifyEnabled true
+            shrinkResources true
             firebaseCrashlytics {
                 mappingFileUploadEnabled false
             }
@@ -46,7 +71,7 @@ android {
                 optimizeCode true
                 proguardFile 'proguard-rules.pro'
             }
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {
