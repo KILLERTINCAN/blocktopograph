@@ -60,14 +60,14 @@ android {
                 signingConfig signingConfigs.release
             }
 
-            minifyEnabled true
             shrinkResources true
             firebaseCrashlytics {
                 mappingFileUploadEnabled false
             }
             postprocessing {
                 removeUnusedCode true
-                obfuscate false
+                removeUnusedResources true
+                obfuscate true
                 optimizeCode true
                 proguardFile 'proguard-rules.pro'
             }
