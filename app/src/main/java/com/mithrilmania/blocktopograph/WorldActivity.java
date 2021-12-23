@@ -211,7 +211,7 @@ public class WorldActivity extends AppCompatActivity
         if (mapVersionData != null) bundle.putAll(mapVersionData);
 
         // anonymous global counter of opened worlds
-        Log.logFirebaseEvent(this, Log.CustomFirebaseEvent.WORLD_OPEN, bundle);
+//        Log.logFirebaseEvent(this, Log.CustomFirebaseEvent.WORLD_OPEN, bundle);
 
         Log.d(this, "World activity created");
     }
@@ -229,7 +229,7 @@ public class WorldActivity extends AppCompatActivity
         super.onResume();
 //
         // anonymous global counter of resumed world-activities
-        Log.logFirebaseEvent(this, Log.CustomFirebaseEvent.WORLD_RESUME);
+//        Log.logFirebaseEvent(this, Log.CustomFirebaseEvent.WORLD_RESUME);
 
         try {
             this.world.resume();

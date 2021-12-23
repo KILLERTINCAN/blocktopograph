@@ -2,7 +2,7 @@ name: Build App Release
 on: [push]
 jobs:
   release-build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     name: Build Release App
 
     steps:
@@ -16,8 +16,13 @@ jobs:
     - run: cd leveldb/src/main/cpp && git clone https://github.com/mojang/leveldb-mcpe.git && cd ../../../../
       name: Setup Submodule
 
-    - run: ./gradlew assembleRelease --no-daemon
-      name: Building App With Gradle
+    - run: |
+        echo "${{ secrets.KEYSTORE }}" > blocktopograph.jks.asc
+        gpg -d --passphrase ${{ secrets.KEYSTORE_PASSPHRASE }} --batch blocktopograph.jks.asc > app/blocktopograph.jks
+      name: Setup Signing Key
+
+    - run: ./gradlew -PsigningStorePassword="${{ secrets.SIGNING_STORE_PASSWORD }}" -PsigningKeyAlias="${{ secrets.SIGNING_KEY_ALIAS }}" -PsigningKeyPassword="${{ secrets.SIGNING_KEY_PASSWORD }}" assembleRelease
+      name: Building App With Signing Key
 
     - uses: actions/upload-artifact@v2
       name: Upload APK

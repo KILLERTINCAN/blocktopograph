@@ -90,37 +90,35 @@ public class WorldItemListActivity extends AppCompatActivity {
         } else return true;
     }
 
-    private void showFeedbackRequestDialogIfNeeded() {
-        SharedPreferences prefs = getPreferences(MODE_PRIVATE);
-        if (prefs.getInt(PREF_KEY_ACCEPT_DATA_USAGE, 0) == 1) {
-            Log.enableCrashlytics();
-            Log.enableFirebaseAnalytics(this);
-            return;
-        }
-        AlertDialog dialog = new AlertDialog.Builder(this)
-                .setTitle(R.string.privacy_promo_title)
-                .setMessage(R.string.privacy_promo_text)
-                .setPositiveButton(R.string.privacy_promo_accept_btn, this::onAcceptedRequestDialog)
-                .setNegativeButton(R.string.privacy_promo_reject_btn, this::onRejectedRequestDialog)
-                .setCancelable(false)
-                .create();
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.show();
-        View view = dialog.findViewById(android.R.id.message);
-        if (view instanceof TextView)
-            ((TextView) view).setMovementMethod(LinkMovementMethod.getInstance());
-        else Log.d(this, "cannot find android.R.id.message for privacy request dialog.");
-    }
+//    private void showFeedbackRequestDialogIfNeeded() {
+//        SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+//        if (prefs.getInt(PREF_KEY_ACCEPT_DATA_USAGE, 0) == 1) {
+//            Log.enableCrashlytics();
+//            Log.enableFirebaseAnalytics(this);
+//            return;
+//        }
+//        AlertDialog dialog = new AlertDialog.Builder(this)
+//                .setTitle(R.string.privacy_promo_title)
+//                .setMessage(R.string.privacy_promo_text)
+//                .setPositiveButton(R.string.privacy_promo_accept_btn, this::onAcceptedRequestDialog)
+//                .setNegativeButton(R.string.privacy_promo_reject_btn, this::onRejectedRequestDialog)
+//                .setCancelable(false)
+//                .create();
+//        dialog.setCanceledOnTouchOutside(false);
+//        dialog.show();
+//        View view = dialog.findViewById(android.R.id.message);
+//        if (view instanceof TextView)
+//            ((TextView) view).setMovementMethod(LinkMovementMethod.getInstance());
+//        else Log.d(this, "cannot find android.R.id.message for privacy request dialog.");
+//    }
 
-    private void onAcceptedRequestDialog(DialogInterface dialogInterface, int i) {
-        Log.enableFirebaseAnalytics(this);
-        Log.enableCrashlytics();
-        getPreferences(MODE_PRIVATE).edit().putInt(PREF_KEY_ACCEPT_DATA_USAGE, 1).apply();
-    }
-
-    private void onRejectedRequestDialog(DialogInterface dialogInterface, int i) {
-        finishAffinity();
-    }
+//    private void onAcceptedRequestDialog(DialogInterface dialogInterface, int i) {
+//        getPreferences(MODE_PRIVATE).edit().putInt(PREF_KEY_ACCEPT_DATA_USAGE, 1).apply();
+//    }
+//
+//    private void onRejectedRequestDialog(DialogInterface dialogInterface, int i) {
+//        finishAffinity();
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,7 +130,7 @@ public class WorldItemListActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
         setSupportActionBar(toolbar);
-        showFeedbackRequestDialogIfNeeded();
+//        showFeedbackRequestDialogIfNeeded();
 
         if (findViewById(R.id.worlditem_detail_container) != null) {
             // The detail container view will be present only in the
@@ -245,7 +243,7 @@ public class WorldItemListActivity extends AppCompatActivity {
                 type = 0;
         }
         params.putInt(Log.ANA_PARAM_MAINACT_MENU_TYPE, type);
-        Log.logFirebaseEvent(this, Log.CustomFirebaseEvent.MAINACT_MENU_OPEN, params);
+//        Log.logFirebaseEvent(this, Log.CustomFirebaseEvent.MAINACT_MENU_OPEN, params);
 
         //some text pop-up dialogs, some with simple HTML tags.
         switch (item.getItemId()) {
@@ -430,7 +428,12 @@ public class WorldItemListActivity extends AppCompatActivity {
 
             File sd = Environment.getExternalStorageDirectory();
 
+            // Before 1.18
             saveFolders.add(new File(sd, "games/com.mojang/minecraftWorlds"));
+            marks.add(null);
+
+            // After 1.18
+            saveFolders.add(new File(sd, "Android/data/com.mojang.minecraftpe/files/games/com.mojang/minecraftWorlds"));
             marks.add(null);
 
             //noinspection ResultOfMethodCallIgnored
