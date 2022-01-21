@@ -1,49 +1,29 @@
 # Blocktopograph
 
-![author](https://github.com/Templarian/MaterialDesign/blob/master/svg/account.svg)
+### Authors
+ - *Proto Lambda*\(Old Maintained\)
+ - [@MithrilMania](https://github.com/MithrilMania)
+ - [@flagmaggot](https://github.com/flagmaggot)
+ - [@NguyenDuck](https://github.com/NguyenDuck)
+ - and many other community contributors, including translation.
 
-By *Proto Lambda*\(Link removed, as he asked to\), [@MithrilMania](https://github.com/MithrilMania),
-[@flagmaggot](https://github.com/flagmaggot) and many other community contributors, including translation.  
-This fork is the only one supporting MCPE 1.13+ for now.
+### World Version Supported
+| Version | Supported |
+| 1.17 before | Unsupported |
+| 1.18+ | Unsupported |
 
-## ![translate](https://github.com/Templarian/MaterialDesign/blob/master/svg/web.svg) Help improve translation
-[Click here](https://github.com/oO0oO0oO0o0o00/blocktopograph/blob/master/translation.md).
+## Help improve translation
+Unavailable for now!
 
-## Update paused
-As title.
+## Update slowly
+Since I'm a student, I can't spend too much time developing at times and have to work part-time
 
-Translations and pull requests **will still be processed**, but we encourage you to
-take over this project and develope on your own.
+## Download 
+[Release](https://github.com/NguyenDuck/blocktopograph/releases)
 
-## ![download](https://github.com/Templarian/MaterialDesign/blob/master/svg/download.svg)Download
-[>>> Download on Google Play <<<](https://play.google.com/store/apps/details?id=rbq2012.blocktopograph)  
-[![Google Play](https://lh3.googleusercontent.com/qF9r3ZjtgG-qyHdmjecArtKiulz1gmwL_xl9R3_fzk6igSeoN0wYbJSKEX5d_fxJRwYZJpHbqcLB3i9atl-9dOfUl9an7U43TfZ9PtQ=s0)](https://play.google.com/store/apps/details?id=rbq2012.blocktopograph)
-
-And release page of the repository provides debug version of the app.  
-<img src="arts/scr02.png" alt="screenshot" width="320"/>
-<img src="arts/scr03.png" alt="screenshot" width="320"/>
-
-## ![build](https://github.com/Templarian/MaterialDesign/blob/master/icons/svg/camera-front-variant.svg)Build
-
-Clone project in Android Studio: `File -> New -> Project from Version Control -> Git`  
-Install missing SDK components. Android Studio would give you the auto-fix options.  
-
-### Release-Workflow
-
-The official Google-Play version is managed by @mithrilmania. The Release-signing keys are not available.
-You can build it as debug build or sign it with your own keys.
-
-This Google-Play version will be updated after any significant and well-written feature additions and fixes.
-
-Questions? *Proto* said he does not want to be bothered about this app anymore.
-
-Issues and requests are welcome too, but please use the issue-tracker for this to keep things organized.
-
-
-### Wiki
-
-Reasonable wiki-suggestions are welcome; comments should be sufficient for most parts of this project.
-
+## FAQ
+ - *Proto* said he does not want to be bothered about this app anymore.
+ - Issues and Requests please make it at this fork!
 
 ## LICENSE
 
@@ -80,4 +60,4 @@ LICENSE-head:
 
 ## Contributing
 
-Always welcome! Fork the project, improve and publish!
+Always welcome! Report issues and make pull request improve and publish!
