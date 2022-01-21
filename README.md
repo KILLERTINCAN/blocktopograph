@@ -7,11 +7,6 @@
  - [@NguyenDuck](https://github.com/NguyenDuck)
  - and many other community contributors, including translation.
 
-### World Version Supported
-| Version | Supported |
-| 1.17 before | Unsupported |
-| 1.18+ | Unsupported |
-
 ## Help improve translation
 Unavailable for now!
 
