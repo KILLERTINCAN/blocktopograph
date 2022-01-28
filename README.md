@@ -1,5 +1,13 @@
 # Blocktopograph
 
+## Aiming version 2.0
+ - Change from 180° top-down look to 135° top-down look
+ - Backward compability minecraft world version 1.18
+ - 1.18+ world support
+ - Application animation
+ - More utilities nbt customization ( block, entity )
+ - Marker hold-moveable instant
+
 ### Authors
  - *Proto Lambda*\(Old Maintained\)
  - [@MithrilMania](https://github.com/MithrilMania)
